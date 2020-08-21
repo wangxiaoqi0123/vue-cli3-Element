@@ -85,7 +85,6 @@ import ProfessionalQualification from "./contents/ProfessionalQualification";
 import TitleTnformation from "./contents/TitleTnformation";
 import Language from "./contents/Language";
 import RewardSituation from "./contents/RewardSituation";
-
 import MessageTips from "./modules/MessageTips";
 export default {
   components: {
@@ -112,7 +111,12 @@ export default {
   },
   computed: {},
   watch: {},
-  mounted() { },
+  created() {
+    this.$store.commit("information_collection/SET_NAVACTIVE", "BasicInformation");
+  },
+  mounted() {
+
+  },
   methods: {}
 };
 </script>

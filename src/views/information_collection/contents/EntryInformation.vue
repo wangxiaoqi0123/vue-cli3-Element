@@ -12,7 +12,7 @@
       class="form-content"
     >
       <div class="form-align3">
-        <el-form-item label="证件类型" prop="name">
+        <el-form-item label="证件类型" prop="countryBirth">
           <el-select v-model="formData.countryBirth" placeholder="请选择证件类型" class="form-sel">
             <el-option
               v-for="item in sexList"
@@ -37,24 +37,47 @@
           ></el-date-picker>
         </el-form-item>
 
-        <el-form-item label="签发机关">
+        <el-form-item label="签发机关" prop="fileid">
+          <el-input v-model="formData.fileid" class="form-inp" />
+        </el-form-item>
+
+        <el-form-item label="户口存放单位">
           <el-input v-model="formData.firstName" class="form-inp" />
         </el-form-item>
 
-        <el-form-item label="工资卡银行名称" prop="name">
-          <el-select v-model="formData.countryBirth" placeholder="请选择工资卡银行名称" class="form-sel">
-            <el-option
-              v-for="item in sexList"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
+        <el-form-item label="休假参考日期" required>
+          <el-date-picker
+            type="date"
+            class="form-date"
+            placeholder="选择日期"
+            v-model="formData.date1"
+            style="width: 100%;"
+          ></el-date-picker>
         </el-form-item>
 
-        <el-form-item label="工资银行卡账号">
+        <el-form-item label="工资卡银行名称" prop="firstName">
+          <!--
+            v-model 联动key值
+            bank.sync 联动对象
+          -->
+          <SearchBank v-model="formData.firstName" :bank.sync="bank" placeholder="请选择工资卡银行名称" />
+        </el-form-item>
+
+        <el-form-item label="工资银行卡账号" prop="firstName">
           <el-input v-model="formData.firstName" class="form-inp" />
         </el-form-item>
+
+        <div>
+          <el-form-item label="身份证附件上传" prop="fileid">
+            <UploadFile v-model="formData.fileid" :fileList.sync="fileList" />
+          </el-form-item>
+        </div>
+
+        <div>
+          <el-form-item label="银行卡附件上传" prop="card">
+            <UploadFile v-model="formData.card" :fileList.sync="cardList" />
+          </el-form-item>
+        </div>
       </div>
     </el-form>
     <div class="form-footer-box">
@@ -64,12 +87,18 @@
   </div>
 </template>
 <script>
+import SearchBank from "../modules/SearchBank";
+import UploadFile from "../modules/UploadFile";
 export default {
+  components: {
+    SearchBank,
+    UploadFile
+  },
   data() {
     return {
       formData: {
         userId: 1000000,
-        firstName: "YINFWEN",
+        firstName: "102290014579",
         name: "",
         sex: "F",
         countryBirth: "",
@@ -79,8 +108,40 @@ export default {
         delivery: false,
         type: [],
         resource: "",
-        desc: ""
+        desc: "",
+        fileid: "1295995276426461187",
+        card: "1295995276426461187"
       },
+      bank: {
+        BANKA: "中国工商银行股份有限公司上海市中科路支行",
+        BANKL: "102290014579",
+        BANKS: "CN",
+        BNKLZ: ""
+      },
+      fileList: [
+        {
+          "fileUrl": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
+          "id": "1295995276426461187",
+          "name": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
+          "pernr": "",
+          "planId": "",
+          "planNodeId": "",
+          "planStepId": "",
+          "showName": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx"
+        }
+      ],
+      cardList: [
+        {
+          "fileUrl": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
+          "id": "1295995276426461187",
+          "name": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
+          "pernr": "",
+          "planId": "",
+          "planNodeId": "",
+          "planStepId": "",
+          "showName": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx"
+        }
+      ],
       rules: {
         name: [
           { required: true, message: "请输入活动名称", trigger: "blur" },
@@ -98,11 +159,12 @@ export default {
         type: [
           { type: "array", required: true, message: "请至少选择一个活动性质", trigger: "change" }
         ],
-        resource: [
-          { required: true, message: "请选择活动资源", trigger: "change" }
+        firstName: [
+          { required: true, message: "请填写英文名称", trigger: "change" }
         ],
-        desc: [
-          { required: true, message: "请填写活动形式", trigger: "blur" }
+        fileid: [
+          { required: true, message: "请上传附件", trigger: "change" },
+          { required: true, message: "请上传附件", trigger: "blur" }
         ]
       },
       sexList: [

@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     handleChange(val) {
-      console.log(val);
+      // console.log(val);
     }
   }
 };
@@ -55,6 +55,14 @@ export default {
     font-size: 14px;
     padding: 0px 10px 0px 20px;
     box-sizing: border-box;
+  }
+  /deep/ .el-collapse-item__header {
+    &:hover,
+    &:active,
+    &:focus,
+    &:link {
+      color: #303133 !important;
+    }
   }
 }
 </style>

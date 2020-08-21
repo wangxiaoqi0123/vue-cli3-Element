@@ -27,7 +27,11 @@ export default {
         },
         {
           path: "/tabs",
-          name: "tabs测试页面"
+          name: "表单校验页面"
+        },
+        {
+          path: "/form_component",
+          name: "表单组件页面"
         }
       ]
     };

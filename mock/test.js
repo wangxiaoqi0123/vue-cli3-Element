@@ -11,6 +11,36 @@ let demoList = {
     }]
   }
 };
+
+// Form表单单独提交一条form表单数据
+let submitForm = {
+  status: 200,
+  message: "success",
+  data: {
+    // SAP 的数据
+    SAP: [],
+    data: {
+      // key:value
+      name: ""
+    }
+  }
+};
+
+//
+let getPermissionForm = {
+  status: 200,
+  message: "success",
+  data: {
+    SAP: [],
+    data: {
+      // key:value
+      name: ""
+    }
+  }
+};
+
 export default {
-  "get|/parameter/query": demoList
+  "get|/parameter/query": demoList,
+  "get|/submit/query": submitForm,
+  "get|/getPermissionForm/query": getPermissionForm
 };

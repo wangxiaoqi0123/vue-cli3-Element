@@ -1,0 +1,124 @@
+// 表单样式统一
+.form-content {
+
+  // 输入框
+  .form-inp {
+    /deep/ .el-input__inner {
+      height: 34px;
+      line-height: 34px;
+      min-width: 200px;
+    }
+  }
+
+  // 下拉选
+  .form-sel {
+    /deep/ .el-input__inner {
+      height: 34px;
+      line-height: 34px;
+      min-width: 200px;
+    }
+  }
+
+  // 日期
+  .form-date {
+    /deep/ .el-input__inner {
+      height: 34px;
+      line-height: 34px;
+      min-width: 200px;
+    }
+  }
+
+  // 一行三个对齐方式
+  .form-align3 {
+    /deep/ .el-form-item {
+      width: 33.3333%;
+      margin-right: 0;
+      margin-bottom: 16px;
+
+      &>.el-form-item__label {
+        width: 40% !important;
+        font-weight: 400;
+        color: #48576a;
+        font-size: 14px;
+      }
+
+      &>.el-form-item__content {
+        width: calc(~'60% - 12px');
+        line-height: 34px;
+
+        &>div {
+          width: 100%;
+          margin-right: 0;
+
+          &>.el-form-item__content {
+            width: 100%;
+          }
+        }
+      }
+
+      .el-input__icon {
+        line-height: 34px;
+      }
+    }
+  }
+
+  .form-align2 {
+    /deep/ .el-form-item {
+      width: 50%;
+      margin-right: 0;
+      margin-bottom: 16px;
+
+      &>.el-form-item__label {
+        width: 40% !important;
+        font-weight: 400;
+        color: #48576a;
+        font-size: 14px;
+      }
+
+      &>.el-form-item__content {
+        width: calc(~'60% - 12px');
+
+        &>div {
+          width: 100%;
+          margin-right: 0;
+
+          &>.el-form-item__content {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+  }
+
+  // 树形下拉选表单组件 start ------------
+
+  // 树型下拉选 错误提示样式
+  /deep/ .is-error .vue-treeselect__control {
+    border-color: #F56C6C !important;
+  }
+
+  // 树形下拉选表单组件 end ------------
+
+}
+
+.form-content .form-align3 .row-algin2>.el-form-item {
+  width: 66.6666%;
+
+  /deep/ &>.el-form-item__label {
+    width: 20% !important;
+  }
+
+  /deep/ &>.el-form-item__content {
+    width: calc(~'80% - 12px');
+  }
+}
+
+// 保存按钮
+.form-save-btn {
+  background-color: #e3a25b;
+  border-color: #e3a25b;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 20px;
+}

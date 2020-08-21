@@ -9,10 +9,13 @@
       class="form-content"
     >
       <div class="form-align3">
-        <div class="avatar-box">
+        <el-form-item class="avatar-box" prop="avatar">
+          <UploadAvatar />
+        </el-form-item>
+        <!-- <div class="avatar-box">
           <div class="avatar-img">头像</div>
           <div class="avatar-tips">（上传要求：格式为JPG，小于1MB的照片）</div>
-        </div>
+        </div>-->
 
         <el-form-item label="员工编号">
           <el-input v-model="formData.userId" class="form-inp" :readonly="true" />
@@ -294,7 +297,11 @@
   </div>
 </template>
 <script>
+import UploadAvatar from "../modules/UploadAvatar";
 export default {
+  components: {
+    UploadAvatar
+  },
   data() {
     return {
       formData: {
@@ -330,6 +337,9 @@ export default {
         ],
         resource: [
           { required: true, message: "请选择活动资源", trigger: "change" }
+        ],
+        avatar: [
+          { required: true, message: "请上传头像", trigger: "change" }
         ],
         desc: [
           { required: true, message: "请填写活动形式", trigger: "blur" }
@@ -370,29 +380,13 @@ export default {
 
 .avatar-box {
   width: 30%;
-  height: 260px;
   box-sizing: border-box;
   float: right;
   text-align: center;
   padding-top: 6px;
-
-  .avatar-img {
-    width: 118px;
-    min-width: 118px;
-    max-width: 118px;
-    height: 160px;
-    min-height: 160px;
-    max-height: 160px;
-    background-color: #eda04b;
-    display: inline-block;
-  }
-  .avatar-tips {
-    font-size: 13px;
-    color: #f99d33;
-    letter-spacing: 0;
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
+  padding-bottom: 60px;
+  /deep/ .el-form-item__content {
+    width: 100% !important;
   }
 }
 

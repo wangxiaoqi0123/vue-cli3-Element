@@ -43,6 +43,10 @@
             ></el-option>
           </el-select>
         </el-form-item>
+
+        <el-form-item label="不标准字段测试" prop="S_F_###_NAASD">
+          <el-input v-model="formData['S_F_###_NAASD']" class="form-inp" />
+        </el-form-item>
       </div>
     </el-form>
     <div class="form-footer-box">
@@ -58,7 +62,8 @@ export default {
       formData: {
         name: "",
         sex: "",
-        date: ""
+        date: "",
+        "S_F_###_NAASD": 1
       },
       required: {
         name: "name",
@@ -67,6 +72,9 @@ export default {
       },
       flag: true,
       rules: {
+        "S_F_###_NAASD": [
+          { required: true, message: "请输入", trigger: "blur" }
+        ],
         name: [
           { required: true, message: "请输入姓名", trigger: "blur" }
         ],

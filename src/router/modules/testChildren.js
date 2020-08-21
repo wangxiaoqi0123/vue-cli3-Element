@@ -16,6 +16,15 @@ const testChildren = [
       roles: ["admin", "ASYNC"]
     },
     component: () => import("@/views/test/children/tabs/index")
+  },
+  {
+    path: "/form_component",
+    name: "form_component页面",
+    meta: {
+      title: "form_component",
+      roles: ["admin", "ASYNC"]
+    },
+    component: () => import("@/views/test/children/form_component/index")
   }
 ];
 export default testChildren;

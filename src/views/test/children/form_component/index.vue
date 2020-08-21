@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <FormVerify />
+  <div class="form-test">
+    <Form1 />
   </div>
 </template>
 <script>
-import FormVerify from "./contents/FormVerify";
+import Form1 from "./contents/Form1";
 export default {
   components: {
-    FormVerify
+    Form1
   },
   data() {
     return {};
