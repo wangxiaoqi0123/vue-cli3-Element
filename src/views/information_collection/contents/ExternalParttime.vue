@@ -86,6 +86,7 @@
 export default {
   data() {
     return {
+      formList: [],
       formData: {
         userId: 1000000,
         firstName: "YINFWEN",

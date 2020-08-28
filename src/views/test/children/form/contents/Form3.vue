@@ -19,6 +19,7 @@
       label-width="100px"
       class="form-content"
     >
+      <el-button class="form-del-btn" @click="delClick(index,item)">删除表单</el-button>
       <div class="form-align3">
         <el-form-item label="姓名" :prop="required.name">
           <el-input v-model="item.name" class="form-inp" />
@@ -114,6 +115,9 @@ export default {
         }
       });
     },
+    delClick(index, item) {
+      this.formList.splice(index, 1);
+    },
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
@@ -185,6 +189,7 @@ export default {
   }
   margin-bottom: 20px;
 }
+
 .btn-box {
   margin-bottom: 20px;
 }

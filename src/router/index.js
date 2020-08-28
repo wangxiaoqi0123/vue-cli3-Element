@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import testChildren from "./modules/testChildren";
+import menuList from "./modules/menuList";
 
 Vue.use(Router);
 
@@ -55,6 +56,14 @@ export const constantRoutes = [
       title: "information_collection"
     },
     component: () => import("@/views/information_collection/index")
+  },
+  {
+    path: "/editor",
+    name: "富文本编辑器页面",
+    meta: {
+      title: "editor"
+    },
+    component: () => import("@/views/editor/index")
   }
 ];
 
@@ -77,6 +86,17 @@ export const asyncRoutes = [
     component: () => import("@/views/test/index"),
     children: [
       ...testChildren
+    ]
+  },
+  {
+    name: "layout",
+    path: "/layout",
+    meta: {
+      title: "layout"
+    },
+    component: () => import("@/views/layout/index"),
+    children: [
+      ...menuList
     ]
   },
   // 404页面必须放置在末尾!!!

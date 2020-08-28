@@ -32,6 +32,10 @@ export default {
         {
           path: "/form_component",
           name: "表单组件页面"
+        },
+        {
+          path: "/dialog",
+          name: "流程弹框页面"
         }
       ]
     };

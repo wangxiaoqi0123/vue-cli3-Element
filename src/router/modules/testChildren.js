@@ -25,6 +25,15 @@ const testChildren = [
       roles: ["admin", "ASYNC"]
     },
     component: () => import("@/views/test/children/form_component/index")
+  },
+  {
+    path: "/dialog",
+    name: "dialog页面",
+    meta: {
+      title: "dialog",
+      roles: ["admin", "ASYNC"]
+    },
+    component: () => import("@/views/test/children/dialog/index")
   }
 ];
 export default testChildren;

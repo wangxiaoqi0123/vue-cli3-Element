@@ -1,7 +1,8 @@
 <template>
   <div class="avatar-content">
     <div class="avatar-img">头像</div>
-    <div class="up-btn">点击上传</div>
+    <div class="up-btn" @click="uploadClick">点击上传</div>
+    <input ref="file" type="file" style="display:none" @change="Upload" />
     <div class="avatar-tips">（上传要求：格式为JPG，小于1MB的照片）</div>
   </div>
 </template>
@@ -13,7 +14,37 @@ export default {
   computed: {},
   watch: {},
   mounted() { },
-  methods: {}
+  methods: {
+    uploadClick() {
+      this.$refs.file.value = "";
+      this.$refs.file.dispatchEvent(new MouseEvent("click"));
+    },
+    Upload() {
+      const file = this.$refs.file.files[0];
+      // 模拟附件上传
+      const loading = this.$loading({
+        lock: true,
+        text: "附件上传中...",
+        spinner: "el-icon-loading",
+        background: "rgba(0, 0, 0, 0.7)"
+      });
+      console.log("file :>> ", file);
+      setTimeout(() => {
+        // let res = {
+        //   "fileUrl": file.name,
+        //   "id": file.size,
+        //   "name": file.name,
+        //   "pernr": "",
+        //   "planId": "",
+        //   "planNodeId": "",
+        //   "planStepId": "",
+        //   "showName": file.name
+        // };
+        // this.fileListModel.push(res);
+        loading.close();
+      }, 1000);
+    }
+  }
 };
 </script>
 <style lang='less' scoped>

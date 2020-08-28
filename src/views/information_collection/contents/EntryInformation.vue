@@ -109,7 +109,7 @@ export default {
         type: [],
         resource: "",
         desc: "",
-        fileid: "1295995276426461187",
+        fileid: "",
         card: "1295995276426461187"
       },
       bank: {
@@ -122,6 +122,16 @@ export default {
         {
           "fileUrl": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
           "id": "1295995276426461187",
+          "name": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
+          "pernr": "",
+          "planId": "",
+          "planNodeId": "",
+          "planStepId": "",
+          "showName": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx"
+        },
+        {
+          "fileUrl": "EHR二期_金控板块_小额贷款证明模板测试报告_202003212.xlsx",
+          "id": "129599527642646118123",
           "name": "EHR二期_金控板块_小额贷款证明模板测试报告_20200323.xlsx",
           "pernr": "",
           "planId": "",
